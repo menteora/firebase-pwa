@@ -2,6 +2,27 @@
 
 > A Vue.js project
 
+## Screenshots
+
+### Lighthouse initial score
+![firebase](docs/images/lighthouse.png)
+
+### Desktop preview
+![firebase](docs/images/desktop.png)
+
+### Mobile preview
+![firebase](docs/images/mobile.png)
+
+### Offline initial message
+![firebase](docs/images/offline.png)
+
+
+## Todo
+
+- [x] Get posts from Firebase
+- [x] Cache static assets and skeleton app
+- [ ] Cache posts
+
 ## Build Setup
 
 ``` bash
@@ -13,6 +34,9 @@ npm run dev
 
 # build for production with minification
 npm run build
+
+# build for production with minification and start local http-server
+npm run build:local
 
 # build for production and view the bundle analyzer report
 npm run build --report
