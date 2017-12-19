@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
-import Todo from '@/components/Todo'
+import Hello from '@/pages/Hello'
+import Posts from '@/pages/Posts'
 
 Vue.use(Router)
 
@@ -9,8 +9,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Todo',
-      component: Todo
+      name: 'Posts',
+      component: Posts
     },
     {
       path: '/hello',
