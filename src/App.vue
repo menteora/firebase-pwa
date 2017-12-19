@@ -1,101 +1,88 @@
 <template>
-  <v-app light>
-    <v-navigation-drawer
-      fixed
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      v-model="drawer"
-      app
-    >
-      <v-list>
-        <v-list-tile
-          value="true"
-          v-for="(item, i) in items"
-          :key="i"
-          exact
-        >
-          <v-list-tile-action>
-            <v-icon light v-html="item.icon"></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <v-toolbar fixed app :clipped-left="clipped">
-      <v-toolbar-side-icon @click.stop="drawer = !drawer" light></v-toolbar-side-icon>
-      <v-btn
-        icon
-        light
-        @click.stop="miniVariant = !miniVariant"
+<v-app light>
+
+  <v-navigation-drawer 
+    fixed 
+    temporary 
+    :mini-variant="miniVariant" 
+    :clipped="clipped" 
+    v-model="drawer" 
+    :disable-route-watcher="routeWatcher" 
+    :enable-resize-watcher="resizeWatcher"
+    app
+  >
+    <v-list>
+      <v-list-tile 
+        router 
+        v-for="(item, i) in items" 
+        :key="i" 
+        :to="item.to" 
+        exact
       >
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        light
-        @click.stop="clipped = !clipped"
+        <v-list-tile-action>
+          <v-icon v-html="item.icon"></v-icon>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          <v-list-tile-title v-text="item.title"></v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+    </v-list>
+  </v-navigation-drawer>
+
+  <v-toolbar app clipped-left fixed>
+    <v-toolbar-side-icon class="hidden-md-and-up" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+    <!--<v-avatar :hidden="hiddenTitle" class="ml-3" size="32px">
+      <img :hidden="hiddenTitle" src="~/assets/icons/favicon.png">
+    </v-avatar>-->
+    <v-toolbar-title v-text="title"></v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-toolbar-items class="hidden-sm-and-down" v-for="(item, i) in items" :key="i">
+      <v-btn 
+        exact 
+        router 
+        :to="item.to" 
+        flat
       >
-        <v-icon>web</v-icon>
+        <v-icon left v-html="item.icon"></v-icon>{{item.title}}
       </v-btn>
-      <v-btn
-        icon
-        light
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>remove</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        icon
-        light
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>menu</v-icon>
-      </v-btn>
-    </v-toolbar>
-    <v-content>
-      <router-view></router-view>
-    </v-content>
-    <v-navigation-drawer
-      temporary
-      :right="right"
-      v-model="rightDrawer"
-      fixed
-    >
-      <v-list>
-        <v-list-tile @click="right = !right">
-          <v-list-tile-action>
-            <v-icon light>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer :fixed="fixed" app>
-      <span>&copy; 2017</span>
-    </v-footer>
-  </v-app>
+    </v-toolbar-items>
+  </v-toolbar>
+
+  <v-content>
+    <router-view></router-view>
+  </v-content>
+  
+</v-app>
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        clipped: false,
-        drawer: true,
-        fixed: false,
-        items: [{
-          icon: 'bubble_chart',
-          title: 'Inspire'
-        }],
-        miniVariant: false,
-        right: true,
-        rightDrawer: false,
-        title: 'Vuetify.js'
-      }
+export default {
+  data () {
+    return {
+      clipped: true,
+      drawer: false,
+      fixed: false,
+      miniVariant: false,
+      routeWatcher: false,
+      resizeWatcher: true,
+      title: 'FirebasePwa',
+      offsetTop: 0,
+      offsetLimit: 250,
+      hiddenTitle: true,
+      items: [
+        {
+          title: 'Home',
+          icon: 'home',
+          to: '/'
+        },
+        {
+          title: 'Hello',
+          icon: 'label',
+          to: '/hello'
+        }
+      ]
     }
   }
+}
 </script>
+

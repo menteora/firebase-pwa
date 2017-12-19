@@ -13,7 +13,7 @@ export default new Router({
       component: Todo
     },
     {
-      path: '/Hello',
+      path: '/hello',
       name: 'Hello',
       component: Hello
     }

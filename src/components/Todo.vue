@@ -3,7 +3,7 @@
     <v-slide-y-transition mode="out-in">
       <v-layout>
         <ul v-if="todos && todos.length">
-          <li :key="todo"" v-for="todo of todos">
+          <li :key="todo" v-for="todo of todos">
             <p><strong>{{todo.description}}</strong></p>
             <p>{{todo.done}}</p>
           </li>
