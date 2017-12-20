@@ -5,6 +5,8 @@
 ## Screenshots
 
 ### Lighthouse initial score
+[complete report here](docs/Lighthouse%20Report.pdf)
+
 ![firebase](docs/images/lighthouse.png)
 
 ### Desktop preview
