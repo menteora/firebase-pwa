@@ -98,12 +98,23 @@ var webpackConfig = merge(baseWebpackConfig, {
         from: path.resolve(__dirname, '../static'),
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
+      },
+      // added importScripts copy to dist folder
+      {
+        from: path.join(__dirname, 'service-worker-extra.js'),
+        to: path.join(path.resolve(__dirname, '../dist') , 'service-worker-extra.js'),
+        transform: function(content, path) {
+          console.log(path);
+          return loadMinified(path);
+        }
       }
     ]),
+
     // service worker caching
     new SWPrecacheWebpackPlugin({
       cacheId: 'my-vue-app',
       filename: 'service-worker.js',
+      importScripts: ['service-worker-extra.js'],
       staticFileGlobs: ['dist/**/*.{js,html,css}'],
       minify: true,
       stripPrefix: 'dist/'
@@ -128,7 +139,8 @@ if (config.build.productionGzip) {
     })
   )
 }
-
+console.log(path.join(__dirname, 'service-worker-extra.js'));
+console.log(path.join(path.resolve(__dirname, '../dist') , 'service-worker-extra.js'));
 if (config.build.bundleAnalyzerReport) {
   var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
