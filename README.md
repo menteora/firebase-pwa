@@ -61,7 +61,14 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 - [A Progressive Web Application with Vue JS, Webpack & Material Design [Part 3]](https://blog.sicara.com/a-progressive-web-application-with-vue-js-webpack-material-design-part-3-service-workers-offline-ed3184264fd1)
 - [Share Message with Application](https://css-tricks.com/making-web-app-work-offline-part-2-implementation/)
 - [One Way, Two Way, Broadcast Message](https://dbwriteups.wordpress.com/2015/11/16/service-workers-part-3-communication-between-sw-and-pages/)
+- [https://hnpwa.com/](https://hnpwa.com/)
 
 #### ...to consider
 - [Use Service Worker inside ](https://github.com/vuejs-templates/pwa/issues/81)
 - [Messages](http://craig-russell.co.uk/2016/01/29/service-worker-messaging.html#.Wjz_V1XiaUk)
+- [Workbox](https://developers.google.com/web/tools/workbox/get-started/webpack)
+
+### VuePlugin
+
+- [How to Create One](https://vuejsdevelopers.com/2017/04/22/vue-js-libraries-plugins/)
+- [How to Create One: another link](https://alligator.io/vuejs/creating-custom-plugins/)
