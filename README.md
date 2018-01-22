@@ -24,6 +24,8 @@
 - [x] Get posts from Firebase
 - [x] Cache static assets and skeleton app
 - [ ] Cache posts
+- [ ] Migration to Workbox
+- [ ] Add HackerNews api [Hacker News readers as Progressive Web Apps](https://hnpwa.com/)
 
 ## Build Setup
 
